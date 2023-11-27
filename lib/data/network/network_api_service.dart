@@ -5,11 +5,17 @@ import 'package:e_store/data/network/base_network_api_service.dart';
 import 'package:http/http.dart';
 
 class NetworkApiService implements BaseNetWorkApiService {
-  
   @override
-  Future<dynamic> getGetApiResponse(String endPoint) async {
+  Future<dynamic> getGetApiResponse(
+    String endPoint,
+    Map<String, dynamic>? queryParameters,
+  ) async {
     try {
-      var uri = Uri.http("", endPoint);
+      var uri = Uri.http(
+        "",
+        endPoint,
+        queryParameters
+      );
       Response response = await http.get(uri);
 
       return returnResponse(response);

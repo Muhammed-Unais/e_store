@@ -1,5 +1,5 @@
 abstract interface class BaseNetWorkApiService {
   Future<dynamic> getGetApiResponse(
-    String endPoint,
+    String endPoint,Map<String, dynamic>? queryParameters,
   );
 }
