@@ -1,3 +1,4 @@
+import 'package:e_store/features/home/view/home_view.dart';
 import 'package:e_store/res/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
@@ -43,18 +45,7 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.light,
             ),
       ),
-      home: const MyHomePage(),
+      home: const HomeScreen(),
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
   }
 }
