@@ -1,7 +1,6 @@
 import 'package:e_store/data/app_response/status_enum.dart';
-import 'package:e_store/features/product_details_view/view/widgets/product_discription.dart';
-import 'package:e_store/features/product_details_view/view/widgets/product_name_and_price.dart';
-import 'package:e_store/features/product_details_view/view/widgets/product_pagination_images.dart';
+import 'package:e_store/features/product_details_view/view/widgets/add_to_cart_floationg_button.dart';
+import 'package:e_store/features/product_details_view/view/widgets/product_all_details_widget.dart';
 import 'package:e_store/features/product_details_view/view_model/single_product_details_view_model.dart';
 import 'package:e_store/res/constants/app_colors.dart';
 import 'package:e_store/res/widgets/appbar_icons.dart';
@@ -9,16 +8,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:provider/provider.dart';
 
-class ProductDetailsPage extends StatefulWidget {
-  const ProductDetailsPage({super.key, required this.productId});
+class ProductDetailsScreenView extends StatefulWidget {
+  const ProductDetailsScreenView({super.key, required this.productId});
 
   final int productId;
 
   @override
-  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
+  State<ProductDetailsScreenView> createState() =>
+      _ProductDetailsScreenViewState();
 }
 
-class _ProductDetailsPageState extends State<ProductDetailsPage> {
+class _ProductDetailsScreenViewState extends State<ProductDetailsScreenView> {
   @override
   void initState() {
     getSingleProductDetails();
@@ -37,6 +37,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: const MyFloatingActionButton(),
       appBar: AppBar(
         leading: AppbarIcons(
           function: () {
@@ -60,54 +62,9 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   ),
                 );
               case Status.completed:
-                return SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(
-                          8.0,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              // productModels!.category!.name!,
-                              "Addidas Shows",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 18,
-                            ),
-                            ProductNameAndPrice(
-                              title: response.data!.title,
-                              price: response.data!.price.toString(),
-                            ),
-                            const SizedBox(
-                              height: 18,
-                            ),
-                          ],
-                        ),
-                      ),
-                      PaginationProductImages(
-                        size: size,
-                        productModel: response.data!,
-                      ),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      ProductDescrption(
-                        productModel: response.data!,
-                      ),
-                    ],
-                  ),
+                return ProductAllDetailsWidget(
+                  response: response,
+                  size: size,
                 );
               case Status.error:
                 return Center(
@@ -122,3 +79,5 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
     );
   }
 }
+
+

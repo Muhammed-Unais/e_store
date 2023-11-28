@@ -61,7 +61,7 @@ class HomeProductsListing extends StatelessWidget {
                     context,
                     PageTransition(
                       type: PageTransitionType.fade,
-                      child: ProductDetailsPage(
+                      child: ProductDetailsScreenView(
                         productId: product.id,
                       ),
                     ),

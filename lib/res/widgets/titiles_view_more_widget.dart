@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
 class TitilsAndViewmore extends StatelessWidget {
-  const TitilsAndViewmore({super.key, required this.allProducuNavAct});
+  const TitilsAndViewmore({super.key,});
 
-  final void Function() allProducuNavAct;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class TitilsAndViewmore extends StatelessWidget {
           ),
           const Spacer(),
           AppbarIcons(
-            function: allProducuNavAct,
+            function: (){},
             icons: IconlyBold.arrowRight2,
           ),
         ],

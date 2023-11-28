@@ -4,8 +4,8 @@ import 'package:e_store/res/constants/app_colors.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
-class PaginationProductImages extends StatelessWidget {
-  const PaginationProductImages({
+class SwiperProductImages extends StatelessWidget {
+  const SwiperProductImages({
     super.key,
     required this.size, required this.productModel,
   });

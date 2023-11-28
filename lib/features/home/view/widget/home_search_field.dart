@@ -5,10 +5,10 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 class SearchTextfield extends StatelessWidget {
   const SearchTextfield({
     super.key,
-    required this.textEditingController,
+    this.textEditingController,
   });
 
-  final TextEditingController textEditingController;
+  final TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {

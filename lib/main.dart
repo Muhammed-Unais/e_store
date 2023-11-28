@@ -1,3 +1,4 @@
+import 'package:e_store/features/cart/view/cart_screen_view.dart';
 import 'package:e_store/features/home/view/home_view.dart';
 import 'package:e_store/features/home/view_model/home_view_model.dart';
 import 'package:e_store/features/product_details_view/view_model/single_product_details_view_model.dart';
@@ -14,6 +15,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (context) => SingleProductDetailsViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartViewModel(),
         )
       ],
       child: const MyApp(),
@@ -60,7 +64,7 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.light,
             ),
       ),
-      home: const HomeScreen(),
+      home: const HomeScreenView(),
     );
   }
 }
