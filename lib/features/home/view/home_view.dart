@@ -7,7 +7,6 @@ import 'package:e_store/res/constants/app_colors.dart';
 import 'package:e_store/res/widgets/titiles_view_more_widget.dart';
 import 'package:flutter/material.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -28,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     textEditingController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -69,9 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemBuilder: (
                             context,
                             index,
-                          ) {
-                            return const HomeBanner();
-                          },
+                          ) =>
+                              const HomeBanner(),
                           pagination: const SwiperPagination(
                             builder: DotSwiperPaginationBuilder(
                               color: Colors.white,
@@ -82,15 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: 10),
                       TitilsAndViewmore(
-                        allProducuNavAct: () {
-                          // Navigator.push(
-                          //   context,
-                          //   PageTransition(
-                          //     type: PageTransitionType.fade,
-                          //     child: const FeedScreen(),
-                          //   ),
-                          // );
-                        },
+                        allProducuNavAct: () {},
                       ),
                       HomeProductsListing(size: size),
                     ],
@@ -104,5 +95,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-

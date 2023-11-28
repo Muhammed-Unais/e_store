@@ -20,21 +20,13 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductModel {
-  @JsonKey(name: "id")
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "title")
   String get title => throw _privateConstructorUsedError;
-  @JsonKey(name: "price")
   int get price => throw _privateConstructorUsedError;
-  @JsonKey(name: "description")
   String get description => throw _privateConstructorUsedError;
-  @JsonKey(name: "images")
   List<String> get images => throw _privateConstructorUsedError;
-  @JsonKey(name: "creationAt")
   DateTime get creationAt => throw _privateConstructorUsedError;
-  @JsonKey(name: "updatedAt")
   DateTime get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: "category")
   Category get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,14 +42,14 @@ abstract class $ProductModelCopyWith<$Res> {
       _$ProductModelCopyWithImpl<$Res, ProductModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: "id") int id,
-      @JsonKey(name: "title") String title,
-      @JsonKey(name: "price") int price,
-      @JsonKey(name: "description") String description,
-      @JsonKey(name: "images") List<String> images,
-      @JsonKey(name: "creationAt") DateTime creationAt,
-      @JsonKey(name: "updatedAt") DateTime updatedAt,
-      @JsonKey(name: "category") Category category});
+      {int id,
+      String title,
+      int price,
+      String description,
+      List<String> images,
+      DateTime creationAt,
+      DateTime updatedAt,
+      Category category});
 
   $CategoryCopyWith<$Res> get category;
 }
@@ -138,14 +130,14 @@ abstract class _$$ProductModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "id") int id,
-      @JsonKey(name: "title") String title,
-      @JsonKey(name: "price") int price,
-      @JsonKey(name: "description") String description,
-      @JsonKey(name: "images") List<String> images,
-      @JsonKey(name: "creationAt") DateTime creationAt,
-      @JsonKey(name: "updatedAt") DateTime updatedAt,
-      @JsonKey(name: "category") Category category});
+      {int id,
+      String title,
+      int price,
+      String description,
+      List<String> images,
+      DateTime creationAt,
+      DateTime updatedAt,
+      Category category});
 
   @override
   $CategoryCopyWith<$Res> get category;
@@ -212,34 +204,29 @@ class __$$ProductModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ProductModelImpl implements _ProductModel {
   const _$ProductModelImpl(
-      {@JsonKey(name: "id") required this.id,
-      @JsonKey(name: "title") required this.title,
-      @JsonKey(name: "price") required this.price,
-      @JsonKey(name: "description") required this.description,
-      @JsonKey(name: "images") required final List<String> images,
-      @JsonKey(name: "creationAt") required this.creationAt,
-      @JsonKey(name: "updatedAt") required this.updatedAt,
-      @JsonKey(name: "category") required this.category})
+      {required this.id,
+      required this.title,
+      required this.price,
+      required this.description,
+      required final List<String> images,
+      required this.creationAt,
+      required this.updatedAt,
+      required this.category})
       : _images = images;
 
   factory _$ProductModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductModelImplFromJson(json);
 
   @override
-  @JsonKey(name: "id")
   final int id;
   @override
-  @JsonKey(name: "title")
   final String title;
   @override
-  @JsonKey(name: "price")
   final int price;
   @override
-  @JsonKey(name: "description")
   final String description;
   final List<String> _images;
   @override
-  @JsonKey(name: "images")
   List<String> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
@@ -247,13 +234,10 @@ class _$ProductModelImpl implements _ProductModel {
   }
 
   @override
-  @JsonKey(name: "creationAt")
   final DateTime creationAt;
   @override
-  @JsonKey(name: "updatedAt")
   final DateTime updatedAt;
   @override
-  @JsonKey(name: "category")
   final Category category;
 
   @override
@@ -309,42 +293,33 @@ class _$ProductModelImpl implements _ProductModel {
 
 abstract class _ProductModel implements ProductModel {
   const factory _ProductModel(
-          {@JsonKey(name: "id") required final int id,
-          @JsonKey(name: "title") required final String title,
-          @JsonKey(name: "price") required final int price,
-          @JsonKey(name: "description") required final String description,
-          @JsonKey(name: "images") required final List<String> images,
-          @JsonKey(name: "creationAt") required final DateTime creationAt,
-          @JsonKey(name: "updatedAt") required final DateTime updatedAt,
-          @JsonKey(name: "category") required final Category category}) =
-      _$ProductModelImpl;
+      {required final int id,
+      required final String title,
+      required final int price,
+      required final String description,
+      required final List<String> images,
+      required final DateTime creationAt,
+      required final DateTime updatedAt,
+      required final Category category}) = _$ProductModelImpl;
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =
       _$ProductModelImpl.fromJson;
 
   @override
-  @JsonKey(name: "id")
   int get id;
   @override
-  @JsonKey(name: "title")
   String get title;
   @override
-  @JsonKey(name: "price")
   int get price;
   @override
-  @JsonKey(name: "description")
   String get description;
   @override
-  @JsonKey(name: "images")
   List<String> get images;
   @override
-  @JsonKey(name: "creationAt")
   DateTime get creationAt;
   @override
-  @JsonKey(name: "updatedAt")
   DateTime get updatedAt;
   @override
-  @JsonKey(name: "category")
   Category get category;
   @override
   @JsonKey(ignore: true)
@@ -358,15 +333,10 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Category {
-  @JsonKey(name: "id")
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "name")
-  Name get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "image")
+  String get name => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
-  @JsonKey(name: "creationAt")
   DateTime get creationAt => throw _privateConstructorUsedError;
-  @JsonKey(name: "updatedAt")
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -381,11 +351,11 @@ abstract class $CategoryCopyWith<$Res> {
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
   $Res call(
-      {@JsonKey(name: "id") int id,
-      @JsonKey(name: "name") Name name,
-      @JsonKey(name: "image") String image,
-      @JsonKey(name: "creationAt") DateTime creationAt,
-      @JsonKey(name: "updatedAt") DateTime updatedAt});
+      {int id,
+      String name,
+      String image,
+      DateTime creationAt,
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -415,7 +385,7 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as Name,
+              as String,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -441,11 +411,11 @@ abstract class _$$CategoryImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "id") int id,
-      @JsonKey(name: "name") Name name,
-      @JsonKey(name: "image") String image,
-      @JsonKey(name: "creationAt") DateTime creationAt,
-      @JsonKey(name: "updatedAt") DateTime updatedAt});
+      {int id,
+      String name,
+      String image,
+      DateTime creationAt,
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -473,7 +443,7 @@ class __$$CategoryImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as Name,
+              as String,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -494,29 +464,24 @@ class __$$CategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CategoryImpl implements _Category {
   const _$CategoryImpl(
-      {@JsonKey(name: "id") required this.id,
-      @JsonKey(name: "name") required this.name,
-      @JsonKey(name: "image") required this.image,
-      @JsonKey(name: "creationAt") required this.creationAt,
-      @JsonKey(name: "updatedAt") required this.updatedAt});
+      {required this.id,
+      required this.name,
+      required this.image,
+      required this.creationAt,
+      required this.updatedAt});
 
   factory _$CategoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$CategoryImplFromJson(json);
 
   @override
-  @JsonKey(name: "id")
   final int id;
   @override
-  @JsonKey(name: "name")
-  final Name name;
+  final String name;
   @override
-  @JsonKey(name: "image")
   final String image;
   @override
-  @JsonKey(name: "creationAt")
   final DateTime creationAt;
   @override
-  @JsonKey(name: "updatedAt")
   final DateTime updatedAt;
 
   @override
@@ -559,30 +524,24 @@ class _$CategoryImpl implements _Category {
 
 abstract class _Category implements Category {
   const factory _Category(
-          {@JsonKey(name: "id") required final int id,
-          @JsonKey(name: "name") required final Name name,
-          @JsonKey(name: "image") required final String image,
-          @JsonKey(name: "creationAt") required final DateTime creationAt,
-          @JsonKey(name: "updatedAt") required final DateTime updatedAt}) =
-      _$CategoryImpl;
+      {required final int id,
+      required final String name,
+      required final String image,
+      required final DateTime creationAt,
+      required final DateTime updatedAt}) = _$CategoryImpl;
 
   factory _Category.fromJson(Map<String, dynamic> json) =
       _$CategoryImpl.fromJson;
 
   @override
-  @JsonKey(name: "id")
   int get id;
   @override
-  @JsonKey(name: "name")
-  Name get name;
+  String get name;
   @override
-  @JsonKey(name: "image")
   String get image;
   @override
-  @JsonKey(name: "creationAt")
   DateTime get creationAt;
   @override
-  @JsonKey(name: "updatedAt")
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)

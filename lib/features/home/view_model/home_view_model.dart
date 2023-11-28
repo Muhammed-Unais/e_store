@@ -8,12 +8,19 @@ class HomeViewModel extends ChangeNotifier {
   // repositories
   final _getallProductRepo = GetAllProductRepository(NetworkApiService());
 
-  Future<List<ProductModel>> getAllProducts({int? limit}) async {
+  // variables
+  int limit = 10;
+
+  Future<List<ProductModel>> getAllProducts({int? limit = 20}) async {
+    
     List<ProductModel> productModel = [];
-    final queryParameters = {"offset": 0, "limit": limit};
+
+    final queryParameters = {"offset": 0.toString(), "limit": limit.toString()};
     await _getallProductRepo.getAllProducts(queryParameters).then((value) {
       productModel = value;
+
     }).onError((error, stackTrace) {
+
       log(error.toString());
     });
     return productModel;

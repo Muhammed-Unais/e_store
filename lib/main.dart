@@ -1,9 +1,24 @@
 import 'package:e_store/features/home/view/home_view.dart';
+import 'package:e_store/features/home/view_model/home_view_model.dart';
+import 'package:e_store/features/product_details_view/view_model/single_product_details_view_model.dart';
 import 'package:e_store/res/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => HomeViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SingleProductDetailsViewModel(),
+        )
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

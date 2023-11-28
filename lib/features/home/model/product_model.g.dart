@@ -34,7 +34,7 @@ Map<String, dynamic> _$$ProductModelImplToJson(_$ProductModelImpl instance) =>
 _$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
     _$CategoryImpl(
       id: json['id'] as int,
-      name: $enumDecode(_$NameEnumMap, json['name']),
+      name: json['name'] as String,
       image: json['image'] as String,
       creationAt: DateTime.parse(json['creationAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
@@ -43,15 +43,8 @@ _$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': _$NameEnumMap[instance.name]!,
+      'name': instance.name,
       'image': instance.image,
       'creationAt': instance.creationAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
     };
-
-const _$NameEnumMap = {
-  Name.audi: 'Audi',
-  Name.clothes: 'Clothes',
-  Name.miscellaneous: 'Miscellaneous',
-  Name.shoes: 'Shoes',
-};

@@ -30,7 +30,7 @@ class ProductModel with _$ProductModel {
 class Category with _$Category {
   const factory Category({
     required int id,
-    required Name name,
+    required String name,
     required String image,
     required DateTime creationAt,
     required DateTime updatedAt,
@@ -38,34 +38,4 @@ class Category with _$Category {
 
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
-}
-
-enum Name {
-  @JsonValue("Audi")
-  audi,
-  @JsonValue("Clothes")
-  clothes,
-  @JsonValue("Miscellaneous")
-  miscellaneous,
-  @JsonValue("Shoes")
-  shoes
-}
-
-final nameValues = EnumValues({
-  "Audi": Name.audi,
-  "Clothes": Name.clothes,
-  "Miscellaneous": Name.miscellaneous,
-  "Shoes": Name.shoes
-});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }

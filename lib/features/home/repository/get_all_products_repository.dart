@@ -12,6 +12,7 @@ class GetAllProductRepository {
     try {
       final response = await _baseNetWorkApiService.getGetApiResponse(
           AppUrl.getAllProductsApi, queryParameters);
+          
 
       final productModel = productModelFromJson(response);
 

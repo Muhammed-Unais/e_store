@@ -23,7 +23,7 @@ class HomeAppbar extends StatelessWidget {
           //   ),
           // );
         },
-        icons: IconlyBold.category,
+        icons: IconlyBold.home,
       ),
       actions: [
         AppbarIcons(
@@ -36,7 +36,7 @@ class HomeAppbar extends StatelessWidget {
           //   ),
           // );
           },
-          icons: IconlyBold.user3,
+          icons: Icons.shopping_cart,
         ),
       ],
     );

@@ -7,16 +7,18 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
     required this.feedAction,
+    required this.imageurl,
+    required this.title,
+    required this.price,
   });
 
   final void Function() feedAction;
-  // final List imageurl;
-  // final String title;
-  // final int price;
+  final String imageurl;
+  final String title;
+  final int price;
 
   @override
   Widget build(BuildContext context) {
-   
     final size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(2.0),
@@ -52,7 +54,7 @@ class ProductCard extends StatelessWidget {
                           ),
                           children: <TextSpan>[
                             TextSpan(
-                              text:220.toString(),
+                              text: price.toString(),
                               style: const TextStyle(
                                 color: AppColors.lightTextColor,
                                 fontWeight: FontWeight.w600,
@@ -74,7 +76,7 @@ class ProductCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: FancyShimmerImage(
-                  imageUrl: "",
+                  imageUrl: imageurl,
                   height: size.height * 0.2,
                   width: double.infinity,
                   boxFit: BoxFit.cover,
@@ -86,14 +88,14 @@ class ProductCard extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const Expanded(
+              Expanded(
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "",
+                    title,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w700,
                     ),

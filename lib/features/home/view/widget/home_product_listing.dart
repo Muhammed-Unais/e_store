@@ -1,5 +1,9 @@
+import 'package:e_store/features/home/view_model/home_view_model.dart';
+import 'package:e_store/features/product_details_view/view/product_details_view.dart';
 import 'package:e_store/res/widgets/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 
 class HomeProductsListing extends StatelessWidget {
   const HomeProductsListing({
@@ -12,10 +16,9 @@ class HomeProductsListing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Future.delayed(const Duration(seconds: 4)),
+      future: context.watch<HomeViewModel>().getAllProducts(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState ==
-            ConnectionState.waiting) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
             child: CircularProgressIndicator(
               color: Colors.black,
@@ -37,32 +40,34 @@ class HomeProductsListing extends StatelessWidget {
         return GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: snapshot.data!.length,
-          gridDelegate:
-              const SliverGridDelegateWithFixedCrossAxisCount(
+          itemCount: snapshot.data?.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 0.0,
             mainAxisSpacing: 0.0,
             childAspectRatio: 1 / 1.4,
           ),
           itemBuilder: (context, index) {
+            final product = snapshot.data?[index];
+
             return SizedBox(
               width: size.width * 0.4,
-              child:
-                 ProductCard(
-                  feedAction: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageTransition(
-                    //     type: PageTransitionType.fade,
-                    //     child: ProductDeatilsScreen(
-                    //     productmodel: snapshot.data![index],
-                    //     ),
-                    //   ),
-                    // );
-                  },
-                ),
-              
+              child: ProductCard(
+                imageurl: product!.images[0],
+                price: product.price,
+                title: product.title,
+                feedAction: () {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: ProductDetailsPage(
+                        productId: product.id,
+                      ),
+                    ),
+                  );
+                },
+              ),
             );
           },
         );
