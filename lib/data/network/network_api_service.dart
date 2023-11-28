@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:e_store/res/constants/app_url.dart';
 import 'package:http/http.dart' as http;
 import 'package:e_store/data/app_exceptions.dart';
 import 'package:e_store/data/network/base_network_api_service.dart';
@@ -12,7 +13,7 @@ class NetworkApiService implements BaseNetWorkApiService {
   ) async {
     try {
       var uri = Uri.http(
-        "",
+        AppUrl.baseUrl,
         endPoint,
         queryParameters
       );
