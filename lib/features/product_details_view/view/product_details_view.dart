@@ -1,4 +1,5 @@
 import 'package:e_store/data/app_response/status_enum.dart';
+import 'package:e_store/features/cart/view/cart_screen_view.dart';
 import 'package:e_store/features/product_details_view/view/widgets/add_to_cart_floationg_button.dart';
 import 'package:e_store/features/product_details_view/view/widgets/product_all_details_widget.dart';
 import 'package:e_store/features/product_details_view/view_model/single_product_details_view_model.dart';
@@ -6,6 +7,7 @@ import 'package:e_store/res/constants/app_colors.dart';
 import 'package:e_store/res/widgets/appbar_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailsScreenView extends StatefulWidget {
@@ -46,6 +48,20 @@ class _ProductDetailsScreenViewState extends State<ProductDetailsScreenView> {
           },
           icons: IconlyBold.arrowLeftCircle,
         ),
+        actions: [
+          AppbarIcons(
+            function: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.fade,
+                  child: const CartScreen(),
+                ),
+              );
+            },
+            icons: Icons.shopping_cart,
+          ),
+        ],
       ),
       body: SafeArea(
         child: Consumer<SingleProductDetailsViewModel>(
@@ -79,5 +95,3 @@ class _ProductDetailsScreenViewState extends State<ProductDetailsScreenView> {
     );
   }
 }
-
-

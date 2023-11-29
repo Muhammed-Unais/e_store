@@ -1,7 +1,11 @@
 import 'package:e_store/features/cart/view/widget/cart_item_card.dart';
 import 'package:e_store/features/cart/view_model/cart_view_model.dart';
+import 'package:e_store/features/checkout/view/checkou_screen_view.dart';
 import 'package:e_store/res/constants/app_colors.dart';
+import 'package:e_store/res/widgets/appbar_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
@@ -12,6 +16,12 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shopping Cart'),
+        leading:  AppbarIcons(
+          function: () {
+            Navigator.pop(context);
+          },
+          icons: IconlyBold.arrowLeftCircle,
+        ),
       ),
       body: Column(
         children: [
@@ -37,7 +47,15 @@ class CartScreen extends StatelessWidget {
                   children: [
                     Text('Total: \$${cart.getTotal().toStringAsFixed(2)}'),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            child: CheckoutScreen(cartDetails: cart),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.lightIconsColor,
                       ),
@@ -63,7 +81,3 @@ class CartScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-

@@ -1,11 +1,15 @@
 import 'package:e_store/features/cart/view_model/cart_view_model.dart';
 import 'package:e_store/res/constants/app_colors.dart';
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartItemCard extends StatelessWidget {
   final int index;
-  const CartItemCard({super.key, required this.index});
+  const CartItemCard({
+    super.key,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +21,16 @@ class CartItemCard extends StatelessWidget {
       elevation: 4.0,
       child: ListTile(
         contentPadding: const EdgeInsets.all(16.0),
-        leading: const CircleAvatar(
-          backgroundColor: Colors.black,
-          child: Icon(Icons.shopping_cart, color: AppColors.lightIconsColor),
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: FancyShimmerImage(
+            imageUrl: cart.items[index].productModel.images[0],
+            width: 60,
+            boxFit: BoxFit.cover,
+            errorWidget: Image.asset(
+              "assets/images/—Pngtree—casual shoes_5640199.png",
+            ),
+          ),
         ),
         title: Text(
           cart.items[index].productModel.title,
