@@ -11,7 +11,7 @@ class HomeViewModel extends ChangeNotifier {
   // variables
   int limit = 10;
 
-  Future<List<ProductModel>> getAllProducts({int? limit = 20}) async {
+  Future<List<ProductModel>> getAllProducts({int? limit = 10}) async {
     
     List<ProductModel> productModel = [];
 

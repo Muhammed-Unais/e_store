@@ -60,4 +60,9 @@ class CartViewModel extends ChangeNotifier {
     return _items.fold(
         0, (sum, item) => sum + item.productModel.price * item.quantity);
   }
+
+  void clearCart() {
+    _items.clear();
+    notifyListeners();
+  }
 }

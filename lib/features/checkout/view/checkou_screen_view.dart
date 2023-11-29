@@ -1,5 +1,6 @@
 import 'package:e_store/features/cart/view_model/cart_view_model.dart';
 import 'package:e_store/features/checkout/view/widget/price_details_widget.dart';
+import 'package:e_store/features/checkout/view_model/payment_view_model.dart';
 import 'package:e_store/res/constants/app_colors.dart';
 import 'package:e_store/res/widgets/appbar_icons.dart';
 import 'package:flutter/material.dart';
@@ -52,13 +53,12 @@ class CheckoutScreen extends StatelessWidget {
                   Text('\$${(cartDetails.getTotal() + 49).toStringAsFixed(2)}'),
                   ElevatedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   PageTransition(
-                      //     type: PageTransitionType.fade,
-                      //     child: CheckoutScreen(cartDetails: cart),
-                      //   ),
-                      // );
+                      PaymentViewModel().openSession(
+                        amount: (cartDetails.getTotal() + 49),
+                        orderId: 1.toString(),
+                        userName: "Unais",
+                        context: context
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.lightIconsColor,
